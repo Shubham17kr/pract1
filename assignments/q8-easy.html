@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cell {
+          border: 1px solid;
+          margin: auto;
+          margin-top: 10rem;
+          height: 20rem;
+          width: 20rem;
+          display: flex;
+        }
+        /* .cell:hover{
+            background :url(./jail.jpg);
+        } */
+      </style>
+</head>
+<body>
+    <div class="cell"></div>
+
+    <script>
+           let divtag=document.querySelector("div")
+           divtag.addEventListener("mouseover",function(){
+            divtag.style.background= "url('./jail.jpg')"
+           })
+           divtag.addEventListener("mouseout",function(){
+            divtag.style.background= ""
+           })
+    </script>
+</body>
+</html>
