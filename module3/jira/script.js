@@ -3,6 +3,8 @@ let modal=document.querySelector(".modal-cont")
 let taskArea=document.querySelector(".textarea-cont")
 let mainCont=document.querySelector(".main-cont")
 let allColorcont=document.querySelectorAll(".priority-color")
+let rmvbtn=document.querySelector(".remove-btn")
+let removeflag=false;
 let flag=true;
 let modalpriorityColor="black"
 
@@ -47,6 +49,18 @@ for(let i=0;i<allColorcont.length;i++)
    
 }
 
+rmvbtn.addEventListener("click",function(){
+    if(removeflag)
+    {
+        rmvbtn.style.color='black'
+    }
+    else
+    {
+        rmvbtn.style.color='red'
+    }
+    removeflag=!removeflag
+})
+
 
 function createTicket(ticketColor,task)
 {
@@ -56,4 +70,10 @@ function createTicket(ticketColor,task)
                           <div class="ticket-id">#er456</div>
                           <div class="ticket-area">${task}</div>`
     mainCont.append(ticketCont)
+
+    ticketCont.addEventListener("click",function(){
+        if(removeflag){
+            ticketCont.remove();
+        }
+    })
 }
