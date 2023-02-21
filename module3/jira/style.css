@@ -13,6 +13,10 @@ body{
     height: 5rem;
     display: flex;
     align-items: center;
+    position:fixed;
+    width: 100vw;
+    top: 0px;
+    
 
 }
 .toolbox-priority-cont{
@@ -82,11 +86,12 @@ body{
     outline: none;
     border: none;
     resize: none;
-    background-color:rgb(189, 13, 13);
+    background-color:rgb(192, 166, 166);
     height:100%;
     width:75%;
     padding:2rem;
     font-size: 2rem;
+    
 
 }
 
@@ -113,12 +118,12 @@ body{
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 7rem;
 
 }
 .ticket-cont{
 
-    background-color: rgb(42, 165, 159);
+    background-color: rgb(191, 207, 206);
     height: 10rem;
     width: 15rem;
     
@@ -129,10 +134,23 @@ body{
 }
 .ticket-id{
 height: 1.5rem;
-background-color: brown;
+background-color: rgb(71, 161, 153);
+font-size: 1rem;
+font-weight: 600;
+padding: 0.2rem;
+padding-left: 0.5rem;
 }
 .ticket-area{
-height: 7.5rem;
-padding: 1rem;
-font-size: 1.5rem;
+height: 5.7rem;
+padding: 0.4rem;
+font-size: 1.25rem;
+outline: none;
+word-break: break-all;
+overflow: auto;
+}
+
+.lock-unlock i{
+    font-size: 1.5rem;
+  
+    margin-left: 13rem;
 }
