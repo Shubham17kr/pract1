@@ -15,6 +15,17 @@ var uid = new ShortUniqueId();
 
 let ticketArr=[];
 
+if(localStorage.getItem("tickets"))
+{
+    let arr=localStorage.getItem("tickets");
+    let tktarr=JSON.parse(arr)
+    ticketArr=tktarr
+    for(let i=0;i<tktarr.length;i++)
+    {
+        createTicket(tktarr[i].color,tktarr[i].task,tktarr[i].id)
+    }
+}
+
 addbtn.addEventListener("click",function(){
 
     if(flag)
@@ -164,6 +175,7 @@ function createTicket(ticketColor,task,ticketId)
         let ticketidx=getticketIdx(id);
         
         ticketArr[ticketidx].task=text_area.textContent;
+        updateLocalStorage();
     })
 
     ticketCont.addEventListener("click",function(){
@@ -175,6 +187,7 @@ function createTicket(ticketColor,task,ticketId)
 
             let ticketidx=getticketIdx(id);
             ticketArr.splice(ticketidx,1)    // remove a ticket
+            updateLocalStorage();
         }
     })
 
@@ -203,11 +216,13 @@ function createTicket(ticketColor,task,ticketId)
     let ticketArridx=getticketIdx(id);
     
     ticketArr[ticketArridx].color=nextticketcolor;
+    updateLocalStorage();
     })
     
 
     if(ticketId==undefined){
         ticketArr.push({"color":ticketColor,"task":task,"id":id})
+        updateLocalStorage();
     }
     // console.log(ticketArr)
 
@@ -222,4 +237,10 @@ function getticketIdx(id)
             return i;
         }
     }
+}
+
+function updateLocalStorage(){
+
+    let stringyfyArr=JSON.stringify(ticketArr)
+        localStorage.setItem("tickets",stringyfyArr)
 }
